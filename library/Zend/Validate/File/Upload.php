@@ -184,7 +184,8 @@ class Zend_Validate_File_Upload extends Zend_Validate_Abstract
             $this->_value = $file;
             switch($content['error']) {
                 case 0:
-                    if (!is_uploaded_file($content['tmp_name'])) {
+                    // by checking $_SERVER['UNIT_TEST'] we have possibility to write unit test for file uploads
+                    if (!isset($_SERVER['UNIT_TEST']) && !is_uploaded_file($content['tmp_name'])) {
                         $this->_throw($content, self::ATTACK);
                     }
                     break;
@@ -223,7 +224,7 @@ class Zend_Validate_File_Upload extends Zend_Validate_Abstract
             }
         }
 
-        if (count($this->_messages) > 0) {
+        if (count((array)$this->_messages) > 0) {
             return false;
         } else {
             return true;

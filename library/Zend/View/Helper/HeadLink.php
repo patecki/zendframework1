@@ -401,7 +401,8 @@ class Zend_View_Helper_HeadLink extends Zend_View_Helper_Placeholder_Container_S
             $extras = (array) $extras;
         }
 
-        $attributes = compact('rel', 'type', 'href', 'media', 'conditionalStylesheet', 'extras');
+        // As of PHP 7.3 compact issues an E_NOTICE level error if a given string refers to an unset variable
+        $attributes = @compact('rel', 'type', 'href', 'media', 'conditionalStylesheet', 'extras');
         return $this->createData($this->_applyExtras($attributes));
     }
 

@@ -122,7 +122,7 @@ class Zend_File_Transfer_Adapter_Http extends Zend_File_Transfer_Adapter_Abstrac
         if (isset($_SERVER['CONTENT_LENGTH'])) {
             $content = $_SERVER['CONTENT_LENGTH'];
         } else if (!empty($_POST)) {
-            $content = serialize($_POST);
+            $content = strlen(serialize($_POST));
         }
 
         // Workaround for a PHP error returning empty $_FILES when form data exceeds php settings

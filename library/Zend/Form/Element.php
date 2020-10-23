@@ -338,8 +338,8 @@ class Zend_Form_Element implements Zend_Validate_Interface
      * Used to resolve and return an element ID
      *
      * Passed to the HtmlTag decorator as a callback in order to provide an ID.
-     * 
-     * @param  Zend_Form_Decorator_Interface $decorator 
+     *
+     * @param  Zend_Form_Decorator_Interface $decorator
      * @return string
      */
     public static function resolveElementId(Zend_Form_Decorator_Interface $decorator)
@@ -1866,7 +1866,7 @@ class Zend_Form_Element implements Zend_Validate_Interface
     /**
      * Add a decorator for rendering the element
      *
-     * @param  string|Zend_Form_Decorator_Interface $decorator
+     * @param  string|Zend_Form_Decorator_Interface|array $decorator
      * @param  array|Zend_Config $options Options with which to initialize decorator
      * @return Zend_Form_Element
      */
